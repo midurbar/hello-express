@@ -12,7 +12,13 @@ router.get('/products/:ref', function(req, res, next) {
   const product=products.find(function(p) {
     return p.ref==ref;
   });
-  res.render('product', { product });
+  
+  if (product) {
+    res.render('product', { product });
+  }else {
+    res.redirect("/error");
+  }
+
 });
 
 

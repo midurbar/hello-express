@@ -7,13 +7,18 @@
   </head>
   <body>
     <div class="row">
-      <div class="card" style="width: 18rem;">
-        <img src="/images/<%= product.image %>" class="card-img-top" alt="...">
+      <div class="col-6">
+        <img src="/images/<%= product.image %>" class="product-photo" alt="...">
       </div>
       <div class="col-6">
         <h2><%= product.name %></h2>
         <h3><%= product.price %>€</h3>
-        <a href="#" class="btn btn-primary">Comprar</a>
+
+        <form action="/comprar" method="post">
+            <input type="hidden" name="ref" value="<%=product.ref%>">
+            <input type="submit" class="btn btn-primary" value="Comprar">
+        </form>
+        
       </div>
     </div>
 
